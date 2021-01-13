@@ -7,6 +7,9 @@ enum engine {
     case start, stop
 }
 
+
+
+
 enum windows {
     case open, close
 }
@@ -17,11 +20,41 @@ struct sportCar {
     let years: Int
     let volumeTrunk: Double
     let volumeBody: Double
-    let statEngine: engine
-    let statWindows: windows
+    var statEngine: engine
+    var statWindows: windows
     let volumeCargo: Double
-    let statCargoTrunk: Bool
-    let statCargoBody: Bool
+    var statCargoTrunk: Bool
+    var statCargoBody: Bool
+    
+    mutating func startEngine() {
+        self.statEngine = .start
+    }
+    
+    mutating func stopEngine() {
+        self.statEngine = .stop
+    }
+    
+    mutating func openWindows() {
+        self.statWindows = .open
+    }
+    
+    mutating func closeWindows() {
+        self.statWindows = .close
+    }
+    
+    mutating func addCargo() {
+        self.statCargoTrunk = true
+        self.statCargoBody = true
+    }
+    
+    mutating func takeCargo() {
+        self.statCargoTrunk = false
+        self.statCargoBody = false
+    }
 }
+
+
+
+
 
 
