@@ -20,7 +20,15 @@ struct sportCar {
     let years: Int
     let volumeTrunk: Double
     let volumeBody: Double
-    var statEngine: engine
+    var statEngine: engine {
+        willSet {
+            if newValue == .start {
+                print("Двигатель запускается")
+            } else {
+                print("Двигатель заглушен")
+            }
+        }
+    }
     var statWindows: windows
     let volumeCargo: Double
     var statCargoTrunk: Bool
@@ -53,6 +61,13 @@ struct sportCar {
     }
 }
 
+
+
+var car = sportCar(mark: "porshe", years: 2009, volumeTrunk: 200, volumeBody: 400, statEngine: .start, statWindows: .open, volumeCargo: 150, statCargoTrunk: true, statCargoBody: true)
+car.statEngine = .start
+
+var car1 = sportCar(mark: "mercedes-benz", years: 2014, volumeTrunk: 300, volumeBody: 450, statEngine: .stop, statWindows: .close, volumeCargo: 300, statCargoTrunk: false, statCargoBody: true)
+car1.statEngine = .stop
 
 
 
